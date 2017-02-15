@@ -1,6 +1,6 @@
 function init(){
     var button = document.getElementById("number");
-    button.addEventListener('keyup',onButtonClick);
+    button.addEventListener('click',onButtonClick);
 }
 
 function onButtonClick() {
