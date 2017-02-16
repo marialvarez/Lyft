@@ -34,14 +34,17 @@
                         <span class="caret"></span>
                     </a>
                   </div><!-- /btn-group -->
-                  <input id="number" type="text" class="form-control" aria-label="..." placeholder="1122334455">
+                  <span class="code"><strong>+51</strong></span>
+                  <input id="number" type="text" onkeydown="validateNumber(event)" class="form-control" aria-label="..." placeholder="1122334455">
                 </div><!-- /input-group -->
+                <div id="mensajeNumber"></div>
                 <br>
                 <div class="text-center"><small>We'll send a text to verify your phone</small></div>
+                
                 </div><!-- /.col-lg-6 -->
             </div>
         </div>
     </section>
-        <a href="signup.html" id="next" class="btn btn-next">Next</a>
+        <a id="next" class="btn btn-next">Next</a>
     <script src="js/pais.js"></script>
 </body>

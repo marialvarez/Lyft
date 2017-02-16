@@ -32,8 +32,18 @@ header i{
     border: none;
     color: #fff;
     padding: 5% 0;
-    margin-top: 30px;
+    position: absolute;
+    bottom:0;
 }
 .input-group {
     width: 100%;
+}
+.code {
+    position: absolute;
+    z-index:10;
+    top:22%;
+    left:15%;
+}
+#number {
+    padding-left:12%; 
 }
