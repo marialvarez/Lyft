@@ -1,6 +1,15 @@
+var nombre = document.getElementById("name");
+var emailX = document.getElementById("email");
+var checkInput = document.getElementById("check"); 
+var mensajeCheck = document.getElementById("mensajeCheck");
+
+
 function init(){
     var button = document.getElementById("next");
     button.addEventListener('click',onButtonClick);
+    nombre.value = '';
+    emailX.value = '';
+    checkInput.checked = false;
 }
 
 function onButtonClick() {
@@ -8,56 +17,79 @@ function onButtonClick() {
     localStorage.setItem('Name', inputName.value);
     var inputEmail = document.getElementById("email");
     localStorage.setItem('Email', inputEmail.value);
-}
-
-function validateM(_evt){
     
-        var nombre = document.getElementById("name").value;
-        
-        var nombreArray = nombre.split("");
-        var primeraLetra = nombreArray[0];
-        var primeraMayus = primeraLetra.toUpperCase();
-        var cortePalabra = false;
-      
-        for(var i=1;i<nombreArray.length;i++){
-            if(cortePalabra)
-            {    
-                primeraMayus += nombreArray[i].toUpperCase();
-                cortePalabra = false;
-            }
-            else
-                primeraMayus+=nombreArray[i];
-                    if(nombreArray[i] == " ")
-                    cortePalabra = true;
-            
-        }
-       
-       document.getElementById("name").value = primeraMayus; 
+    if(nombre.value == '' || emailX.value == '' || checkInput.checked == false) {
+        mensajeCheck.innerHTML = "<br><h5 class='text-center' style='color:#FF1493';>Debe completar todo el formulario</h5>"
+    } else {
+        mensajeCheck.innerHTML = '';
+        location.href = 'mapa.html';
+    }
 }
 
-  function validateT(_evt){
-    /*Los campos nombre y apellido sólo deben permitir caracteres de la A-Z*/
-        palabra = window.event.keyCode;
-
-        if((palabra>=65 && palabra<=90)||palabra==8||palabra==32){
-            
+//VALIDAR NOMBRE
+function validateName(_evt){
+    
+    var mensajeName = document.getElementById("mensajeName");
+    var textoNombre = "<h5 style='color:#FF1493';>Debe ingresar su nombre</h5>";
+    var textoNumero = "<h5 style='color:#FF1493';>Los números no son válidos</h5>";
+ 
+    
+    if(nombre.value!=""){
+       
+        nombre.value = convertirMayus(nombre.value);
+        
+        if(/([0-9])/g.test(nombre.value)){
+            mensajeName.innerHTML=textoNumero;
         } else {
-            //alert("Este campo solo permite caracteres de la A-Z");
-            _evt.preventDefault();
+            mensajeName.innerHTML='';
         }
-      
-} 
+    } else {
+        mensajeName.innerHTML=textoNombre;
+    }    
+}
 
 //VALIDAR EMAIL
-  function validateEmail(_evt){
+function validateEmail(_evt){
     
-      var email = document.getElementById("email").value;
-      var mensaje = document.getElementById("mensaje");
-      
-      if(!/([a-zA-Z0-9(-_.)]+[@][a-zA-Z0-9]+[.][a-zA-Z]+)/g.test(email)){
-        mensaje.innerHTML = "<h5 style='color:#FF1493';>Correo Electrónico Inválido, debe contener ejemplo: hola@dominio.com</h5>"
-      } else {
-        mensaje.innerHTML = "";
-      }
-      
+    var mensajeEmail = document.getElementById("mensajeEmail");
+    var textoEmail = "<h5 style='color:#FF1493';>Correo Electrónico Inválido, debe contener ejemplo: hola@dominio.com</h5>";
+
+    if(/([a-zA-Z0-9(-_.)]+[@][a-zA-Z0-9]+[.][a-zA-Z]+)/g.test(emailX.value)){
+        mensajeEmail.innerHTML = ''; 
+    } else {
+        if(emailX.value.length >= 0){
+            mensajeEmail.innerHTML = textoEmail;   
+        }
+    }
+}
+
+function convertirMayus(texto){
+    
+    var nombreArray = texto.split("");
+    var primeraLetra = nombreArray[0];
+    var mayuscula = primeraLetra.toUpperCase();
+    var espacio = false;
+
+    for(var i=1; i<nombreArray.length; i++) {
+
+        if(espacio){
+            mayuscula += nombreArray[i].toUpperCase();
+            espacio = false;
+        } else {
+            mayuscula += nombreArray[i];
+            if(nombreArray[i] == " ")
+                espacio = true;
+        }
+    }
+    
+    return mayuscula;
+}
+
+function onCheck(evt){   
+    
+    if(checkInput.checked==true){
+        return true;
+    } else {
+        return false;
+    }
 } 

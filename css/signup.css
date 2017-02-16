@@ -28,6 +28,8 @@ header i{
     color: #fff;
     padding: 5% 0;
     margin-top: 30px;
+    position: absolute;
+    bottom:0;
 } 
 .inner {
     position: relative;
