@@ -41,8 +41,8 @@ header i{
 .code {
     position: absolute;
     z-index:10;
-    top:22%;
-    left:15%;
+    top:7px;
+    left:55px;
 }
 #number {
     padding-left:12%; 
