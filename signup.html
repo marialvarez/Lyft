@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/signup.css">
 </head>
-<body>
+<body onload="init()">
     <header>
         <div class="container header">
             <div class="row">
@@ -29,14 +29,15 @@
             <div class="row">
                 <div class="col-xs-12">
                     <div class="inner">
-                        <input class="form-control" type="text" placeholder="First name        Last name"/>
+                        <input class="form-control" onkeyup="validateM(event),validateT(event)" id="name" type="text" placeholder="First name        Last name"/>
                         <i class="glyphicon glyphicon-user"></i>
                     </div>
                     <br>
                     <div class="inner">
-                        <input class="form-control" type="text" placeholder="Email"/>
+                        <input class="form-control" onkeyup="validateEmail(event)" id="email" type="text" placeholder="Email"/>
                          <i class="glyphicon glyphicon-envelope"></i>
                     </div>
+                    <div id="mensaje"></div>
                     <br>
                     <div class="text-center">
                         <input class="check" type="checkbox">
@@ -48,5 +49,7 @@
             </div>
         </div>
     </section>
-    <a href="mapa.html" class="btn btn-next">Next</a>
+    <a href="mapa.html" id="next" class="btn btn-next">Next</a>
+    
+    <script src="js/signup.js"></script>
 </body>
