@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/pais.css">
 </head>
-<body onload='init()'>
+<body onload="init2()">
     <header>
         <div class="container header">
             <div class="row">
@@ -29,8 +29,8 @@
                 <div class="col-lg-6">
                 <div class="input-group">
                   <div class="input-group-btn">
-                    <a href="paises.html" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img class="img-responsive peru" src="image/peru.png" alt=""> 
+                    <a href="paises.html" type="button" class="btn btn-default dropdown-toggle" >
+                        <img class="img-responsive peru" id="peruFlag" src="image/peru.png" alt=""> 
                         <span class="caret"></span>
                     </a>
                   </div><!-- /btn-group -->
@@ -46,5 +46,7 @@
         </div>
     </section>
         <a id="next" class="btn btn-next">Next</a>
+        
+    <script src="js/common.js"></script>
     <script src="js/pais.js"></script>
 </body>

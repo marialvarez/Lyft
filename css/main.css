@@ -27,3 +27,11 @@ section {
     width:100%;
     padding: 10% 10%;
 }
+.botonPink {
+    border-color: #D800BF;
+    background: linear-gradient(to right, #7E00BF , #D800BF);
+}
+.botonWhite {
+    background: none;
+    border: solid 1px #fff;
+}

@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/paises.css">
 </head>
-<body>
+<body onload="init()">
 <header>
     <div class="container">
         <div class="row">
@@ -24,89 +24,25 @@
         <small>Common countries</small>
     </div>
 </header>
+<br>
+<section>
+    <div class="container">
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search" id="search">
+        </div>
+    </div>
+</section>
 <section>
     <div class="container">
         <div class="row">
-            <div class="col-xs-11">
-                <ul>
-                    <li>
-                        <img class="img-size" src="image/australia.png" alt="">
-                        <p>Australia</p>
-                    </li>
-                    <hr>
-                    <li>
-                        <img class="img-size" src="image/canada.png" alt="">
-                        <p>Canada</p>
-                    </li>
-                    <hr>
-                    <li>
-                        <img class="img-size" src="image/china.png" alt="">
-                        <p>China</p>
-                    </li>
-                    <hr>
-                    <li>
-                        <img class="img-size" src="image/france.png" alt="">
-                        <p>France</p>
-                    </li>
-                    <hr>
-                    <li>
-                        <img class="img-size" src="image/india.png" alt="">
-                        <p>India</p>
-                    </li>
-                    <hr>
-                    <li>
-                        <img class="img-size" src="image/japan.png" alt="">
-                        <p>Japan</p>
-                    </li>
-                    <hr>
-                    <li>
-                        <img class="img-size" src="image/mexico.png" alt="">
-                        <p>Mexico</p>
-                    </li>
-                    <hr>
-                    <li>
-                        <img class="img-size" src="image/puerto%20rico.png" alt="">
-                        <p>Puerto Rico</p>
-                    </li>
-                    <hr>
-                    <li>
-                        <img class="img-size" src="image/unitedkingdom.png" alt="">
-                        <p>United Kingdom</p>
-                    </li>
-                </ul>
-            </div>
-            <div class="col-xs-1">
-                <small>A</small>
-                <small>B</small>
-                <small>C</small>
-                <small>D</small>
-                <small>E</small>
-                <small>F</small>
-                <small>G</small>
-                <small>H</small>
-                <small>I</small>
-                <small>J</small>
-                <small>K</small>
-                <small>L</small>
-                <small>M</small>
-                <small>N</small>
-                <small>O</small>
-                <small>P</small>
-                <small>Q</small>
-                <small>R</small>
-                <small>S</small>
-                <small>T</small>
-                <small>U</small>
-                <small>V</small>
-                <small>W</small>
-                <small>X</small>
-                <small>Y</small>
-                <small>Z</small>
-                <small>#</small>
+            <div class="col-xs-12">
+                <ul id="list-countries"></ul>
             </div>
         </div>
     </div>
-    <script href="js/paises.js"></script>
-    <script href="js/comun.js"></script>
-</section>
+</section>    
+
+<script src="js/common.js"></script>
+<script src="js/paises.js"></script>
+
 </body>
