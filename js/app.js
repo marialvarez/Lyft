@@ -2,44 +2,39 @@ function init(){
     
 }
 
-
+var map;
 
 function initMap() {
-  var map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: -34.397, lng: 150.644},
-    zoom: 17,
-    icon: 'image/carriño.png'
-  });
-  var infoWindow = new google.maps.InfoWindow({map: map});
-
-  // Try HTML5 geolocation.
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function(position) {
-      var pos = {
-        lat: position.coords.latitude,
-        lng: position.coords.longitude
-      };
-
-      infoWindow.setPosition(pos);
-      infoWindow.setContent('Location found.');
-      infoWindow.setIcon('image/carriño.png');
-      map.setCenter(pos);
-    }, function() {
-      handleLocationError(true, infoWindow, map.getCenter());
+    map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: -16.457368, lng: -71.531508},
+    zoom: 16
+});
+    
+    var latLongPazPeru = {lat:-16.457336,lng: -71.530440};
+    var latDos = {lat:-16.437368,lng: -71.551208};
+    var latTres = {lat:-16.457368,lng: -71.521508};
+    var latCuatro = {lat:-16.497368,lng: -71.511908};
+    
+    var pazPeru = new google.maps.Marker({
+        map: map,
+        position: latLongPazPeru,
+        title: 'Hello World!',
+        //label:'X',
+        icon: 'image/carriño.png'
     });
-  } else {
-    // Browser doesn't support Geolocation
-    handleLocationError(false, infoWindow, map.getCenter());
-  }
+    
+    new google.maps.Marker({position:latDos, map:map, icon:'image/carriño.png'});
+    new google.maps.Marker({position:latTres, map:map, icon:'image/carriño.png'});
+    new google.maps.Marker({position:latCuatro, map:map, icon:'image/carriño.png'});
+    
+    var infowindow = new google.maps.InfoWindow({
+        content:contentString
+    });
+    
+    pazPeru.addEventListener('click', function(){
+        infowindow.open(map,pazPeru)
+    })
 }
-
-function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-  infoWindow.setPosition(pos);
-  infoWindow.setContent(browserHasGeolocation ?
-                        'Error: The Geolocation service failed.' :
-                        'Error: Your browser doesn\'t support geolocation.');
-}
-
 
 
 
