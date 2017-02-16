@@ -1,5 +1,5 @@
 body {
-    background: url("/image/image.jpg") center center;
+    background: url("../image/fondo.jpg") center center;
     background-size:cover;
     background-attachment: fixed;
 }
